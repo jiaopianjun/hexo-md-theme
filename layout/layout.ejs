@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<%- partial('_partial/head') %>
+
+<body>
+    <%- partial('_partial/loading') %>
+    <%- partial('_partial/menu') %>
+    <main id="main">
+        <%- body %>
+        <%- partial('_partial/footer') %>
+    </main>
+    <%- partial('_partial/after-footer') %>
+    <%- partial('_partial/script') %>
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

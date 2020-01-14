@@ -1,0 +1,19 @@
+<% if (theme.visit_counter) { %>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+<% if (theme.wordCount.enable) { %>
+    <% if (theme.wordCount.postWordCount) { %>
+    <span class="info-break-policy">
+        <i class="fa fa-pencil fa-fw"></i><%- __('') %>
+        <%= wordcount(page.content) %>
+    </span>
+    <% } %>
+    <% if (theme.wordCount.min2read) { %>
+    <span class="info-break-policy">
+        <i class="fa fa-clock-o fa-fw"></i><%- __('') %>
+        <%= min2read(page.content) %> <%= __('min') %>
+    </span>
+    <% } %>
+<% } %>
+<% } %>

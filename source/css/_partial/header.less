@@ -1,0 +1,145 @@
+.top-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: @textPrimaryColor;
+    height: @headerH;
+    
+    -webkit-transition: padding-left .6s ease-in-out, background-color .3s cubic-bezier(.4, 0, .2, 1), box-shadow .15s linear;
+    transition: padding-left .6s ease-in-out, background-color .3s cubic-bezier(.4, 0, .2, 1), box-shadow .15s linear;
+    z-index: 30;
+
+    &.fixed {
+        box-shadow: @boxShadow;
+        // background: @primaryColor;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        .header-title {
+            visibility: visible;
+        }
+        #jinrishici-sentence{
+            display:none;
+        }
+    }
+}
+#jinrishici-sentence{
+    padding-top:19px;
+    font-size:13px;
+    max-width:270px;
+}
+.header-icon {
+    width: @headerH;
+    height: @headerH;
+    line-height: @headerH;
+    text-align: center;
+    color: @textPrimaryColor;
+
+    &:hover {
+        color: @textPrimaryColor;
+    }
+}
+
+.header-title {
+    visibility: hidden;
+    font-weight: 400;
+    line-height: 56px;
+    font-size: 16px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.content-header {
+    min-height: 310px;
+    margin-left: -240px;
+    padding: 104px 16px 48px 256px;
+    color: @textPrimaryColor;
+    background: @primaryColor;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+
+    position: relative;
+    // display: flex;
+    // align-items: center;
+    // height: 40vh;
+    // padding: 0;
+    // margin-top: -64px;
+    // border: 0;
+    // overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    transform: translate3d(0px, 0px, 0px);
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    
+    .starsBox{
+        position: absolute;
+        height: 310px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    .subtitle {
+        padding-top: 6px;
+        font-weight: 300;
+        color: @lightPrimaryColor;
+    }
+
+    .title {
+        font-weight: 500;
+    }
+
+    .article-category-list-link {
+        color: lighten(@accentColor, 10%);
+    }
+
+}
+
+.post-header {
+
+    .title, .subtitle {
+        display: none;
+    }
+}
+.tags-header,
+.categories-header {
+    position: relative;
+    z-index: 6;
+    padding-bottom: 0!important
+}
+
+@media screen and (max-width:1240px) {
+
+    .header-title {
+        text-align: left;
+    }
+
+}
+
+@media screen and (max-width:760px) {
+    .content-header {
+        margin: 0;
+        min-height: auto;
+        padding: 72px 16px 20px;
+
+        .title {
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            line-height: 20px
+        }
+        #jinrishici-sentence{
+            font-size:12px;
+        }
+    }
+
+    .post-header {
+        .title {
+            display: block;
+            font-size: 24px;
+            line-height: 1.5;
+        }
+    }
+
+}

@@ -1,0 +1,43 @@
+<%
+var isFullUrl = function(str) {
+  return /^(https:|http:|ftp:)?\/\//.test(str);
+};
+%>
+<article id="<%= post.layout %>-<%= post.slug %>"
+  class="article-card article-type-<%= post.layout %>" itemprop="blogPost">
+    <% if (post.photos.length) { %>
+        <% var thumb = post.photos[0]; %>
+        <% var thumbUrl = isFullUrl(thumb) ? thumb : url_for(thumb) %>
+        <div class="reviewImg">
+            <a href="<%- config.root %><%- post.path %>" class="review-img">
+                <img src="<%- thumbUrl %>" alt="<%- post.path %>" class="attachment-post-thumbnail">
+            </a>
+        </div>
+    <% } %>
+    <div class="post-meta">
+        <%- partial('post/date', {date_format: config.date_format}) %>
+        <%- partial('post/category') %>
+    </div>
+    <%- partial('post/title', { hasLink: true }) %>
+    <div class="post-content clearfix" id="post-content" itemprop="postContent">
+        <% if (post.desc) { %>
+            <%-post.desc %>
+        <% } else { %>
+            <% if(theme.excerpt_render) { %>
+                <%- post.excerpt || post.content %>
+            <% } else { %>
+                <%- post.excerpt ? strip_html(post.excerpt) : truncate(strip_html(post.content), {
+                    length: theme.excerpt_length
+                }) %>
+            <% } %>
+        <% } %>
+        <a href="<%- url_for(post.path) %>" class="post-more waves-effect waves-button">
+            <%= __('post.continue_reading') %>
+        </a>
+    </div>
+    <% if(post.tags && post.tags.length){ %>
+    <div class="post-footer">
+        <%- partial('post/tag') %>
+    </div>
+    <% } %>
+</article>
